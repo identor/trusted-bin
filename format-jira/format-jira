@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const readline = require('readline');
+let lineNumber = 1;
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  ouput: process.stdout
+});
+
+rl.prompt()
+
+rl
+  .on('line', line => {
+    line = line.split('\t').join('|');
+
+    if (lineNumber === 1)
+      console.log(`||${line}||`);
+    else
+      console.log(`|${line}|`);
+
+    ++lineNumber;
+  });
+
